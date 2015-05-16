@@ -1,0 +1,100 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.1.1'
+    }
+}
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+group = 'com.androidforever'
+version = '1.0'
+
+repositories {
+    jcenter()
+}
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        minSdkVersion 3
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+signing {
+    required { has("release") && gradle.taskGraph.hasTask("uploadArchives") }
+    sign configurations.archives
+}
+
+configurations {
+    archives {
+        extendsFrom configurations.default
+    }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            configuration = configurations.archives
+            //repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+            repository(url: "scp://maven.android-forever.com/var/www/vhosts/pedjaapps.net/maven.android-forever.com") {
+                authentication(userName: androidforeverSshUsername, privateKey: androidforeverSshPrivateKey, passphrase: androidforeverSshPassphrase)
+            }
+
+            pom.project {
+                artifactId 'data-loader'
+                name 'data-loader'
+                packaging 'aar'
+                description 'Simple library for loading data using custom data providers'
+                url 'https://github.com/pedja1/data-loader'
+
+                scm {
+                    url 'scm:git@github.com:pedja1/data-loader.git'
+                    connection 'scm:git@github.com:pedja1/data-loader.git'
+                    developerConnection 'scm:git@github.com:pedja1/data-loader.git'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution 'repo'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'pedja1'
+                        name 'Predrag Čokulov'
+                    }
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    archives "org.apache.maven.wagon:wagon-ssh:2.2"
+}
