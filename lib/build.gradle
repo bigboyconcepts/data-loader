@@ -11,7 +11,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group = 'com.androidforever'
-version = '1.0'
+version = '1.0.2'
 
 repositories {
     jcenter()
@@ -45,12 +45,6 @@ signing {
     sign configurations.archives
 }
 
-configurations {
-    archives {
-        extendsFrom configurations.default
-    }
-}
-
 uploadArchives {
     repositories {
         mavenDeployer {
@@ -65,7 +59,7 @@ uploadArchives {
             pom.project {
                 artifactId 'data-loader'
                 name 'data-loader'
-                packaging 'aar'
+                packaging "aar"
                 description 'Simple library for loading data using custom data providers'
                 url 'https://github.com/pedja1/data-loader'
 
