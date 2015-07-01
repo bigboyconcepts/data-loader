@@ -4,6 +4,8 @@ package com.androidforever.dataloader.lib;
 import android.annotation.TargetApi;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 
 import java.util.List;
 
@@ -18,8 +20,22 @@ public class DataLoader<T>
 
     public interface LoadListener<T>
     {
-        public void onLoadingFinished(Result<T> result);
-        public void onLoadStarted();
+        /**
+         * Called when {@link DataLoader} has finished loading data<br>
+         * This is a good place to hide/dismiss any ProgressBar/ProgressDialog
+         * @param status {@link Result#STATUS_OK} if any of the data loaders returned result, {@link Result#STATUS_ERROR} in any other case*/
+        void onLoadingFinished(int status);
+
+        /**
+         * Called when data has been loaded<br>
+         * This method could be called multiple times
+         * @see DataProvider#forceLoading() */
+        void onDataLoaded(Result<T> result);
+
+        /**
+         * Called before DataLoader starts to load data<br>
+         * This is a good place to show any ProgressBar/ProgressDialog*/
+        void onLoadStarted();
     }
 
     /**
@@ -28,7 +44,11 @@ public class DataLoader<T>
     public static class Result<T>
     {
         public static final int STATUS_OK = 1001;
-        public static final int STATUS_ERROR = 1001;
+        public static final int STATUS_ERROR = 1002;
+        /**
+         * Status of this result. It can be either {@link #STATUS_ERROR} or {@link #STATUS_OK}<br>
+         * If the {@link DataLoader} was used asynchronously this will always be {@link #STATUS_OK}, and status will be delivered in {@link LoadListener#onLoadingFinished(int)}
+         * @see LoadListener#onLoadingFinished(int) */
         public final int status;
         public final T data;
 
@@ -45,6 +65,8 @@ public class DataLoader<T>
     private boolean useThreadPoolExecutor;
     public static boolean DEBUG = true;
 
+    private Handler mainLoopHandler;
+
     /**
      * @param listener optional {@link com.androidforever.dataloader.lib.DataLoader.LoadListener}
      * @param providers List of {@link DataProvider}s.<br>
@@ -54,6 +76,7 @@ public class DataLoader<T>
     {
         this.listener = listener;
         this.providers = providers;
+        mainLoopHandler = new Handler(Looper.getMainLooper());
     }
 
     public DataLoader(List<DataProvider<T>> providers)
@@ -93,17 +116,17 @@ public class DataLoader<T>
      * {@link DataProvider#load()} method will be called for
      * each provider until one of them returns true<br><br>
      * Providers are used in order they are placed in a list, make sure that you place providers with higher priority first<br><br>
-     * Result will be delivered in {@link com.androidforever.dataloader.lib.DataLoader.LoadListener#onLoadingFinished(com.androidforever.dataloader.lib.DataLoader.Result)}
-     * @param forceSerial force serial execution. Data loading will be executed on a caller thread
-     * @return if forceSerial is true returns result, if its false returns loading result*/
+     * Result will be delivered in {@link LoadListener#onDataLoaded(Result)}
+     * @param forceSyncExecution force serial execution. Data loading will be executed on a caller thread
+     * @return if forceSyncExecution is true returns result, if its false returns null*/
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public Result<T> loadData(boolean forceSerial)
+    public Result<T> loadData(boolean forceSyncExecution)
     {
         if(providers == null || providers.isEmpty())
         {
             throw new IllegalStateException("DataProvider array cannot be null or empty");
         }
-        if (!forceSerial)
+        if (!forceSyncExecution)
         {
             atLoader = new ATLoader();
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && useThreadPoolExecutor)
@@ -117,7 +140,16 @@ public class DataLoader<T>
         }
         else
         {
-            return _loadData();
+            for(DataProvider<T> provider : providers)
+            {
+                boolean success = provider.load();
+                if(success)
+                {
+                    T result = provider.getResult();
+                    return new Result<>(result, Result.STATUS_OK);
+                }
+            }
+            return new Result<>(null, Result.STATUS_ERROR);
         }
         return null;
     }
@@ -127,30 +159,29 @@ public class DataLoader<T>
         loadData(false);
     }
 
-    public Result<T> _loadData()
+    private class ATLoader extends AsyncTask<String, Void, Integer>
     {
-        for(DataProvider<T> provider : providers)
+        @Override
+        public Integer doInBackground(String... params)
         {
-            boolean success = provider.load();
-            if(success)
+            boolean anySucceeded = false;
+            for(DataProvider<T> provider : providers)
             {
-                T result = provider.getResult();
-                return new Result<>(result, Result.STATUS_OK);
+                if(anySucceeded && !provider.forceLoading())
+                    continue;
+                boolean success = provider.load();
+                if(success)
+                {
+                    T result = provider.getResult();
+                    anySucceeded = true;
+                    publishResult(new Result<>(result, Result.STATUS_OK));
+                }
             }
-        }
-        return new Result<>(null, Result.STATUS_ERROR);
-    }
-
-    private class ATLoader extends AsyncTask<String, Void, Result<T>>
-    {
-        @Override
-        public Result<T> doInBackground(String... params)
-        {
-            return _loadData();
+            return anySucceeded ? Result.STATUS_OK : Result.STATUS_ERROR;
         }
 
         @Override
-        public void onPostExecute(Result<T> result)
+        public void onPostExecute(Integer result)
         {
             if(listener != null)listener.onLoadingFinished(result);
         }
@@ -159,6 +190,18 @@ public class DataLoader<T>
         public void onPreExecute()
         {
             if(listener != null)listener.onLoadStarted();
+        }
+
+        private void publishResult(final Result<T> result)
+        {
+            mainLoopHandler.post(new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    if(listener != null)listener.onDataLoaded(result);
+                }
+            });
         }
     }
 

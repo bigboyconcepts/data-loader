@@ -31,4 +31,10 @@ public class MemoryCacheDataProvider<T> implements DataProvider<T>
     {
         return resultData;
     }
+
+    @Override
+    public boolean forceLoading()
+    {
+        return false;
+    }
 }

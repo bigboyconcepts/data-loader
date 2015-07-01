@@ -8,9 +8,15 @@ package com.androidforever.dataloader.lib;
 public class SimpleLoadListener<T> implements DataLoader.LoadListener<T>
 {
     @Override
-    public void onLoadingFinished(DataLoader.Result<T> result)
+    public void onLoadingFinished()
     {
-        
+
+    }
+
+    @Override
+    public void onDataLoaded(DataLoader.Result<T> result)
+    {
+
     }
 
     @Override
