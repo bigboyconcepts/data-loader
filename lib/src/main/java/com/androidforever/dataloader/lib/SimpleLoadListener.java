@@ -8,7 +8,7 @@ package com.androidforever.dataloader.lib;
 public class SimpleLoadListener<T> implements DataLoader.LoadListener<T>
 {
     @Override
-    public void onLoadingFinished()
+    public void onLoadingFinished(int status)
     {
 
     }
