@@ -51,11 +51,13 @@ public class DataLoader<T>
          * @see LoadListener#onLoadingFinished(int) */
         public final int status;
         public final T data;
+        public final DataProvider<T> provider;
 
-        public Result(T data, int status)
+        public Result(T data, int status, DataProvider<T> provider)
         {
             this.data = data;
             this.status = status;
+            this.provider = provider;
         }
     }
 
@@ -146,10 +148,10 @@ public class DataLoader<T>
                 if(success)
                 {
                     T result = provider.getResult();
-                    return new Result<>(result, Result.STATUS_OK);
+                    return new Result<>(result, Result.STATUS_OK, provider);
                 }
             }
-            return new Result<>(null, Result.STATUS_ERROR);
+            return new Result<>(null, Result.STATUS_ERROR, null);
         }
         return null;
     }
@@ -174,7 +176,7 @@ public class DataLoader<T>
                 {
                     T result = provider.getResult();
                     anySucceeded = true;
-                    publishResult(new Result<>(result, Result.STATUS_OK));
+                    publishResult(new Result<>(result, Result.STATUS_OK, provider));
                 }
             }
             return anySucceeded ? Result.STATUS_OK : Result.STATUS_ERROR;
