@@ -227,9 +227,9 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android/android.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/data-loader.iml" filepath="$PROJECT_DIR$/.idea/modules/data-loader.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shared/shared.iml" filepath="$PROJECT_DIR$/.idea/modules/shared/shared.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/data-loader-android.iml" filepath="$PROJECT_DIR$/.idea/modules/android/data-loader-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shared/data-loader-shared.iml" filepath="$PROJECT_DIR$/.idea/modules/shared/data-loader-shared.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
