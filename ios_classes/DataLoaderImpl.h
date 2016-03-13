@@ -4,7 +4,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "com/androidforever/dataloader/DataLoader.h"
 
 
-@interface DataLoaderImpl : NSObject
+@interface DataLoaderImpl : TDataLoader
 @end
