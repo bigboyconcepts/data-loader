@@ -1,4 +1,4 @@
-package com.androidforever.dataloader.lib;
+package com.androidforever.dataloader;
 
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;

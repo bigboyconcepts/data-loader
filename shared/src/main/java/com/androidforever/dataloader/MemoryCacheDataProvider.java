@@ -1,4 +1,4 @@
-package com.androidforever.dataloader.lib;
+package com.androidforever.dataloader;
 
 import android.util.Log;
 
@@ -9,8 +9,8 @@ import android.util.Log;
  */
 public class MemoryCacheDataProvider<T> implements DataProvider<T>
 {
-    String key;
-    T resultData;
+    private String key;
+    private T resultData;
 
     public MemoryCacheDataProvider(String key)
     {

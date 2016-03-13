@@ -1,11 +1,7 @@
-package com.androidforever.dataloader.lib;
+package com.androidforever.dataloader;
 
 
-import android.annotation.TargetApi;
 import android.os.AsyncTask;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
 
 import java.util.List;
 
@@ -14,7 +10,7 @@ import java.util.List;
  * This class is part of the data-loader
  * Copyright © 2014 Predrag Čokulov
  */
-public class DataLoader<T>
+public abstract class DataLoader<T>
 {
     public static final String LOG_TAG = "data-loader";
 
@@ -67,18 +63,15 @@ public class DataLoader<T>
     private boolean useThreadPoolExecutor;
     public static boolean DEBUG = true;
 
-    private Handler mainLoopHandler;
-
     /**
-     * @param listener optional {@link com.androidforever.dataloader.lib.DataLoader.LoadListener}
+     * @param listener optional {@link LoadListener}
      * @param providers List of {@link DataProvider}s.<br>
      *                  Providers will be used in order they are placed in the list.<br>
      *                 */
-    public DataLoader( LoadListener<T> listener,  List<DataProvider<T>> providers)
+    public DataLoader(LoadListener<T> listener, List<DataProvider<T>> providers)
     {
         this.listener = listener;
         this.providers = providers;
-        mainLoopHandler = new Handler(Looper.getMainLooper());
     }
 
     public DataLoader(List<DataProvider<T>> providers)
@@ -121,7 +114,6 @@ public class DataLoader<T>
      * Result will be delivered in {@link LoadListener#onDataLoaded(Result)}
      * @param forceSyncExecution force serial execution. Data loading will be executed on a caller thread
      * @return if forceSyncExecution is true returns result, if its false returns null*/
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public Result<T> loadData(boolean forceSyncExecution)
     {
         if(providers == null || providers.isEmpty())
@@ -131,7 +123,7 @@ public class DataLoader<T>
         if (!forceSyncExecution)
         {
             atLoader = new ATLoader();
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && useThreadPoolExecutor)
+            if(useThreadPoolExecutor)
             {
                 atLoader.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
             }
@@ -196,7 +188,7 @@ public class DataLoader<T>
 
         private void publishResult(final Result<T> result)
         {
-            mainLoopHandler.post(new Runnable()
+            runOnUiThread(new Runnable()
             {
                 @Override
                 public void run()
@@ -206,6 +198,8 @@ public class DataLoader<T>
             });
         }
     }
+
+    protected abstract void runOnUiThread(Runnable runnable);
 
     /**
      * Cancel loading
