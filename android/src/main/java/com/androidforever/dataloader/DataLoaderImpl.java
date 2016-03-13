@@ -26,6 +26,16 @@ public class DataLoaderImpl<T> extends DataLoader<T>
         mainLoopHandler = new Handler(Looper.getMainLooper());
     }
 
+    public DataLoaderImpl()
+    {
+        this(null, null);
+    }
+
+    public DataLoaderImpl(List<DataProvider<T>> dataProviders)
+    {
+        this(null, dataProviders);
+    }
+
     @Override
     protected void runOnUiThread(Runnable runnable)
     {

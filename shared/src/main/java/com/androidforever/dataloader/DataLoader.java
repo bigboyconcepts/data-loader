@@ -3,6 +3,8 @@ package com.androidforever.dataloader;
 
 import android.os.AsyncTask;
 
+import com.google.j2objc.annotations.ObjectiveCName;
+
 import java.util.List;
 
 /**
@@ -199,6 +201,7 @@ public abstract class DataLoader<T>
         }
     }
 
+    @ObjectiveCName("runOnUIThread:")
     protected abstract void runOnUiThread(Runnable runnable);
 
     /**
