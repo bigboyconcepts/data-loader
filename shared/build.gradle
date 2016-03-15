@@ -18,5 +18,6 @@ dependencies {
 }
 
 j2objcConfig {
+    testMinExpectedTests 0
     finalConfigure()
 }
