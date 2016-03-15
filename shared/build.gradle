@@ -1,4 +1,7 @@
-apply plugin: "java"
+plugins {
+    id 'java'
+    id 'com.github.j2objccontrib.j2objcgradle' version '0.6.0-alpha'
+}
 
 group 'com.androidforever'
 version '1.0-SNAPSHOT'
@@ -12,4 +15,8 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+j2objcConfig {
+    finalConfigure()
 }

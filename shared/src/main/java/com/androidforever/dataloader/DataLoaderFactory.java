@@ -7,6 +7,6 @@ import com.google.j2objc.annotations.ObjectiveCName;
  */
 public interface DataLoaderFactory
 {
-    @ObjectiveCName("newDataLoader:")
-    <T> DataLoader<T> newDataLoader(Class type);
+    @ObjectiveCName("newDataLoader")
+    <T> DataLoader<T> newDataLoader();
 }

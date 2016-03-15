@@ -6,7 +6,7 @@ package com.androidforever.dataloader;
 public class DataLoaderFactoryImpl implements DataLoaderFactory
 {
     @Override
-    public <T> DataLoader<T> newDataLoader(Class type)
+    public <T> DataLoader<T> newDataLoader()
     {
         return new DataLoaderImpl<T>();
     }
