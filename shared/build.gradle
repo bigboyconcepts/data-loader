@@ -18,6 +18,7 @@ dependencies {
 }
 
 j2objcConfig {
+    translateArgs '--prefixes', 'src/main/resources/prefixes.properties'
     testMinExpectedTests 0
     finalConfigure()
 }
