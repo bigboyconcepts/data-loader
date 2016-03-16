@@ -8,11 +8,8 @@
 
 
 @implementation DataLoaderImpl
-{
 
-}
-
-- (void)runOnUIThread:(id <JavaLangRunnable>)runnable
+- (void)runOnUIThread:(id<JavaLangRunnable>)runnable
 {
     dispatch_async(dispatch_get_main_queue(), ^(void)
     {

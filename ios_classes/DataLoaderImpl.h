@@ -8,4 +8,7 @@
 
 
 @interface DataLoaderImpl : TDataLoader
+
+- (void)runOnUIThread:(id<JavaLangRunnable>)runnable;
+
 @end
