@@ -1,5 +1,6 @@
 package com.androidforever.dataloader;
 
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
@@ -16,7 +17,7 @@ public class MemCache
 
     private static final long DEF_MAX_CACHE_AGE = 24 * 60 * 60 * 60 * 1000l;//24h
 
-    private ConcurrentHashMap<String, CacheObject> cache;
+    private Map<String, CacheObject> cache;
 
     public MemCache()
     {
