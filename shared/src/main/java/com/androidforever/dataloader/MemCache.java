@@ -124,5 +124,26 @@ public class MemCache
         {
             return addedTs + maxCacheAge < System.currentTimeMillis();
         }
+
+        @Override
+        public String toString()
+        {
+            return "CacheObject{" +
+                    "addedTs=" + addedTs +
+                    ", object=" + object +
+                    ", maxCacheAge=" + maxCacheAge +
+                    '}';
+        }
+    }
+
+    @Override
+    public String toString()
+    {
+        StringBuilder builder = new StringBuilder();
+        for(String key : cache.keySet())
+        {
+            builder.append(key).append(":").append(cache.get(key));
+        }
+        return builder.toString();
     }
 }
