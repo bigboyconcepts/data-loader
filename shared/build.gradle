@@ -20,5 +20,6 @@ dependencies {
 j2objcConfig {
     translateArgs '--prefixes', 'src/main/resources/prefixes.properties'
     testMinExpectedTests 0
+    skipJ2objcVerification true
     finalConfigure()
 }
