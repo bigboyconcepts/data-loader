@@ -228,14 +228,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/data-loader.iml" filepath="$PROJECT_DIR$/.idea/modules/data-loader.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data-loader.iml" filepath="$PROJECT_DIR$/.idea/modules/data-loader.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/data-loader-android.iml" filepath="$PROJECT_DIR$/.idea/modules/android/data-loader-android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/data-loader-android.iml" filepath="$PROJECT_DIR$/.idea/modules/android/data-loader-android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shared/data-loader-shared.iml" filepath="$PROJECT_DIR$/.idea/modules/shared/data-loader-shared.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/shared/data-loader-shared.iml" filepath="$PROJECT_DIR$/.idea/modules/shared/data-loader-shared.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="PropertiesComponent">
@@ -342,6 +339,11 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="libraryTable">
+    <library name="data-loader-shared.data-loader-shared-1.0-SNAPSHOT">
+      <CLASSES />
+      <JAVADOC />
+      <SOURCES />
+    </library>
     <library name="j2objc_annotations">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/shared/libs/j2objc_annotations.jar!/" />

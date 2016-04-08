@@ -31,5 +31,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="jre_emul" level="project" />
     <orderEntry type="library" exported="" name="j2objc_annotations" level="project" />
+    <orderEntry type="library" exported="" name="data-loader-shared.data-loader-shared-1.0-SNAPSHOT" level="project" />
   </component>
 </module>
