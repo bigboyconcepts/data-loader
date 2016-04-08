@@ -40,31 +40,31 @@
         <entry key="$PROJECT_DIR$/../talkb2bv3" value="5830043945000" />
         <entry key="$PROJECT_DIR$/../ts-http-android" value="5812974819000" />
         <entry key="$PROJECT_DIR$/../tulfie-android" value="5825247037000" />
-        <entry key="$USER_HOME$/workspace/.k" value="4289578848537" />
-        <entry key="$USER_HOME$/workspace/.smc" value="14394485439472" />
-        <entry key="$USER_HOME$/workspace/ApatinskPivara" value="5815932712160" />
-        <entry key="$USER_HOME$/workspace/CarouselExample" value="4348714458302" />
-        <entry key="$USER_HOME$/workspace/FontWidgets" value="4312728397612" />
-        <entry key="$USER_HOME$/workspace/GooglePlayDownloader" value="5717021273920" />
-        <entry key="$USER_HOME$/workspace/Hub2Date" value="5661327794202" />
-        <entry key="$USER_HOME$/workspace/KombankArena" value="5639940271312" />
-        <entry key="$USER_HOME$/workspace/NickAetius" value="7220478272508" />
-        <entry key="$USER_HOME$/workspace/Politika" value="5707111772922" />
-        <entry key="$USER_HOME$/workspace/Preezm" value="11427869768596" />
-        <entry key="$USER_HOME$/workspace/PushTest" value="4271489607038" />
-        <entry key="$USER_HOME$/workspace/RFSMSParser" value="4330544926155" />
-        <entry key="$USER_HOME$/workspace/TalkB2B" value="7213672870930" />
-        <entry key="$USER_HOME$/workspace/Tulfie" value="4323336676980" />
-        <entry key="$USER_HOME$/workspace/VitamioBundle" value="5718747375252" />
-        <entry key="$USER_HOME$/workspace/VolleyPlus" value="5706065457672" />
-        <entry key="$USER_HOME$/workspace/adam" value="2858342373888" />
-        <entry key="$USER_HOME$/workspace/android-tv-epg" value="4336566179807" />
-        <entry key="$USER_HOME$/workspace/belgrade-city-guide" value="4352897370794" />
-        <entry key="$USER_HOME$/workspace/nick-gdx" value="10096229598068" />
-        <entry key="$USER_HOME$/workspace/p-net" value="4341185539064" />
-        <entry key="$USER_HOME$/workspace/star-fm-radio" value="1453722354172" />
-        <entry key="$USER_HOME$/workspace/ts-http" value="5799900238555" />
-        <entry key="$USER_HOME$/workspace/ts-net" value="4341183280756" />
+        <entry key="$PROJECT_DIR$/../.k" value="4289578848537" />
+        <entry key="$PROJECT_DIR$/../.smc" value="14394485439472" />
+        <entry key="$PROJECT_DIR$/../ApatinskPivara" value="5815932712160" />
+        <entry key="$PROJECT_DIR$/../CarouselExample" value="4348714458302" />
+        <entry key="$PROJECT_DIR$/../FontWidgets" value="4312728397612" />
+        <entry key="$PROJECT_DIR$/../GooglePlayDownloader" value="5717021273920" />
+        <entry key="$PROJECT_DIR$/../Hub2Date" value="5661327794202" />
+        <entry key="$PROJECT_DIR$/../KombankArena" value="5639940271312" />
+        <entry key="$PROJECT_DIR$/../NickAetius" value="7220478272508" />
+        <entry key="$PROJECT_DIR$/../Politika" value="5707111772922" />
+        <entry key="$PROJECT_DIR$/../Preezm" value="11427869768596" />
+        <entry key="$PROJECT_DIR$/../PushTest" value="4271489607038" />
+        <entry key="$PROJECT_DIR$/../RFSMSParser" value="4330544926155" />
+        <entry key="$PROJECT_DIR$/../TalkB2B" value="7213672870930" />
+        <entry key="$PROJECT_DIR$/../Tulfie" value="4323336676980" />
+        <entry key="$PROJECT_DIR$/../VitamioBundle" value="5718747375252" />
+        <entry key="$PROJECT_DIR$/../VolleyPlus" value="5706065457672" />
+        <entry key="$PROJECT_DIR$/../adam" value="2858342373888" />
+        <entry key="$PROJECT_DIR$/../android-tv-epg" value="4336566179807" />
+        <entry key="$PROJECT_DIR$/../belgrade-city-guide" value="4352897370794" />
+        <entry key="$PROJECT_DIR$/../nick-gdx" value="10096229598068" />
+        <entry key="$PROJECT_DIR$/../p-net" value="4341185539064" />
+        <entry key="$PROJECT_DIR$/../star-fm-radio" value="1453722354172" />
+        <entry key="$PROJECT_DIR$/../ts-http" value="5799900238555" />
+        <entry key="$PROJECT_DIR$/../ts-net" value="4341183280756" />
       </map>
     </option>
     <option name="externalProjectsViewState">
@@ -228,11 +228,14 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/data-loader.iml" filepath="$PROJECT_DIR$/.idea/modules/data-loader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data-loader.iml" filepath="$PROJECT_DIR$/.idea/modules/data-loader.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/data-loader-android.iml" filepath="$PROJECT_DIR$/.idea/modules/android/data-loader-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/data-loader-android.iml" filepath="$PROJECT_DIR$/.idea/modules/android/data-loader-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shared/data-loader-shared.iml" filepath="$PROJECT_DIR$/.idea/modules/shared/data-loader-shared.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/shared/data-loader-shared.iml" filepath="$PROJECT_DIR$/.idea/modules/shared/data-loader-shared.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="PropertiesComponent">
@@ -339,6 +342,13 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="libraryTable">
+    <library name="j2objc_annotations">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/shared/libs/j2objc_annotations.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
     <library name="jre_emul">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/shared/libs/jre_emul.jar!/" />
