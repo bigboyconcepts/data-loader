@@ -3,7 +3,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.0.0-rc3'
+        classpath 'com.android.tools.build:gradle:1.1.1'
     }
 }
 apply plugin: 'com.android.library'
@@ -11,19 +11,19 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group = 'com.androidforever'
-version = '2.0.0'
+version = '1.1.1'
 
 repositories {
     jcenter()
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 23
+        minSdkVersion 3
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
@@ -38,30 +38,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
-
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from android.sourceSets.main.java.sourceFiles
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-javadoc {
-    failOnError false
-}
-
-artifacts {
-    archives javadocJar
-    archives sourcesJar
 }
 
 signing {
@@ -81,11 +57,17 @@ uploadArchives {
             }
 
             pom.project {
-                artifactId 'data-loader-android'
-                name 'data-loader-android'
+                artifactId 'data-loader'
+                name 'data-loader'
                 packaging "aar"
                 description 'Simple library for loading data using custom data providers'
                 url 'https://github.com/pedja1/data-loader'
+
+                scm {
+                    url 'scm:git@github.com:pedja1/data-loader.git'
+                    connection 'scm:git@github.com:pedja1/data-loader.git'
+                    developerConnection 'scm:git@github.com:pedja1/data-loader.git'
+                }
 
                 licenses {
                     license {
@@ -107,7 +89,6 @@ uploadArchives {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project (':data-loader-shared')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     archives "org.apache.maven.wagon:wagon-ssh:2.2"
 }
