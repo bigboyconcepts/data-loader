@@ -1,4 +1,4 @@
-package com.androidforever.dataloader.lib;
+package com.androidforever.dataloader;
 
 /**
  * Created by pedja on 17.11.14. 12.07.

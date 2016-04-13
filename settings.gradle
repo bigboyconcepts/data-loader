@@ -1,1 +1,3 @@
-include ':lib'
+include ':data-loader-shared', ':data-loader-android'
+project(':data-loader-android').projectDir = new File('android')
+project(':data-loader-shared').projectDir = new File('shared')
