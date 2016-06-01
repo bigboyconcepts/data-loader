@@ -339,11 +339,6 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="libraryTable">
-    <library name="data-loader-shared.data-loader-shared-1.0-SNAPSHOT">
-      <CLASSES />
-      <JAVADOC />
-      <SOURCES />
-    </library>
     <library name="j2objc_annotations">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/shared/libs/j2objc_annotations.jar!/" />

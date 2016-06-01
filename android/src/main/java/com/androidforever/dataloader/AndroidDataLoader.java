@@ -11,27 +11,27 @@ import java.util.List;
  * This class is part of the data-loader
  * Copyright © 2014 Predrag Čokulov
  */
-public class DataLoaderImpl<T> extends DataLoader<T>
+public class AndroidDataLoader<T> extends DataLoader<T>
 {
     private Handler mainLoopHandler;
 
     /**
-     * @param listener optional {@link DataLoaderImpl.LoadListener}
+     * @param listener optional {@link AndroidDataLoader.LoadListener}
      * @param providers List of {@link DataProvider}s.<br>
      *                  Providers will be used in order they are placed in the list.<br>
      *                 */
-    public DataLoaderImpl(LoadListener<T> listener, List<DataProvider<T>> providers)
+    public AndroidDataLoader(LoadListener<T> listener, List<DataProvider<T>> providers)
     {
         super(listener, providers);
         mainLoopHandler = new Handler(Looper.getMainLooper());
     }
 
-    public DataLoaderImpl()
+    public AndroidDataLoader()
     {
         this(null, null);
     }
 
-    public DataLoaderImpl(List<DataProvider<T>> dataProviders)
+    public AndroidDataLoader(List<DataProvider<T>> dataProviders)
     {
         this(null, dataProviders);
     }
