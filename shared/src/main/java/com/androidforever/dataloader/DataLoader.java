@@ -209,6 +209,6 @@ public abstract class DataLoader<T>
      * This only calls cancel(true) on the underlying AsyncTask*/
     public void cancel()
     {
-        if(atLoader != null)atLoader.cancel(true);
+        if(atLoader != null)atLoader.cancel(false);
     }
 }
