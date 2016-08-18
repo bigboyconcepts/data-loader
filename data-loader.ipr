@@ -81,9 +81,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/android" />
+            <option value="$PROJECT_DIR$/example" />
             <option value="$PROJECT_DIR$/shared" />
           </set>
         </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>
@@ -92,6 +94,30 @@
       <MavenGeneralSettings>
         <option name="mavenHome" value="Bundled (Maven 3)" />
       </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="NullableNotNullManager">
+    <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
+    <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />
+    <option name="myNullables">
+      <value>
+        <list size="4">
+          <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.Nullable" />
+          <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nullable" />
+          <item index="2" class="java.lang.String" itemvalue="edu.umd.cs.findbugs.annotations.Nullable" />
+          <item index="3" class="java.lang.String" itemvalue="android.support.annotation.Nullable" />
+        </list>
+      </value>
+    </option>
+    <option name="myNotNulls">
+      <value>
+        <list size="4">
+          <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.NotNull" />
+          <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nonnull" />
+          <item index="2" class="java.lang.String" itemvalue="edu.umd.cs.findbugs.annotations.NonNull" />
+          <item index="3" class="java.lang.String" itemvalue="android.support.annotation.NonNull" />
+        </list>
+      </value>
     </option>
   </component>
   <component name="Palette2">
@@ -227,12 +253,13 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data-loader.iml" filepath="$PROJECT_DIR$/.idea/modules/data-loader.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/data-loader-android.iml" filepath="$PROJECT_DIR$/.idea/modules/android/data-loader-android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shared/data-loader-shared.iml" filepath="$PROJECT_DIR$/.idea/modules/shared/data-loader-shared.iml" />
+      <module fileurl="file://$PROJECT_DIR$/data-loader.iml" filepath="$PROJECT_DIR$/data-loader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/data-loader-android.iml" filepath="$PROJECT_DIR$/android/data-loader-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shared/data-loader-shared.iml" filepath="$PROJECT_DIR$/shared/data-loader-shared.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="PropertiesComponent">
@@ -339,6 +366,36 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="libraryTable">
+    <library name="asm-5.0.4">
+      <CLASSES>
+        <root url="jar://$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="data-loader-shared.data-loader-shared-2.0.2">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/shared/build/libs/data-loader-shared-2.0.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/shared/build/libs/data-loader-shared-2.0.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="data-loader-shared.data-loader-shared-2.0.2-javadoc">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/shared/build/libs/data-loader-shared-2.0.2-javadoc.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="data-loader-shared.data-loader-shared-2.0.2-sources">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/shared/build/libs/data-loader-shared-2.0.2-sources.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
     <library name="j2objc_annotations">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/shared/libs/j2objc_annotations.jar!/" />
@@ -352,6 +409,46 @@
       </CLASSES>
       <JAVADOC />
       <SOURCES />
+    </library>
+    <library name="kryo-4.0.0">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/kryo/4.0.0/9f5c64c1315ec79bee0f56bb88e4ae94b65048ce/kryo-4.0.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/kryo/4.0.0/8a2ebf62fff29eb72426887b977f07b39d719ca1/kryo-4.0.0-sources.jar!/" />
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/kryo/4.0.0/8a2ebf62fff29eb72426887b977f07b39d719ca1/kryo-4.0.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="minlog-1.3.0">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/minlog/1.3.0/ff07b5f1b01d2f92bb00a337f9a94873712f0827/minlog-1.3.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/minlog/1.3.0/9ee9f7fe99d5acfcb974e28acbad9349fb33a765/minlog-1.3.0-sources.jar!/" />
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/minlog/1.3.0/9ee9f7fe99d5acfcb974e28acbad9349fb33a765/minlog-1.3.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="objenesis-2.2">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.2/3fb533efdaa50a768c394aa4624144cf8df17845/objenesis-2.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.2/6b6018a6a56db58a29b9ce20837b829a6bad016b/objenesis-2.2-sources.jar!/" />
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.2/6b6018a6a56db58a29b9ce20837b829a6bad016b/objenesis-2.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="reflectasm-1.11.3">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/reflectasm/1.11.3/8b102eed2f12412b254946811111ea48bc03a266/reflectasm-1.11.3.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/reflectasm/1.11.3/d70b212888d5acf77018d6b95acded6ee551da4d/reflectasm-1.11.3-sources.jar!/" />
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/reflectasm/1.11.3/d70b212888d5acf77018d6b95acded6ee551da4d/reflectasm-1.11.3-sources.jar!/" />
+      </SOURCES>
     </library>
   </component>
   <component name="masterDetails">
