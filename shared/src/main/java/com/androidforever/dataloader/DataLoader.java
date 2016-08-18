@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 
 import com.google.j2objc.annotations.ObjectiveCName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,6 +16,8 @@ import java.util.List;
 public abstract class DataLoader<T>
 {
     public static final String LOG_TAG = "data-loader";
+    public static boolean GLOBAL_USE_THREAD_POOL_EXECUTOR = false;
+    public static boolean DEBUG = true;
 
     public interface LoadListener<T>
     {
@@ -62,8 +65,7 @@ public abstract class DataLoader<T>
     private LoadListener<T> listener;
     private List<DataProvider<T>> providers;
     private ATLoader atLoader;
-    private boolean useThreadPoolExecutor;
-    public static boolean DEBUG = true;
+    private boolean useThreadPoolExecutor = GLOBAL_USE_THREAD_POOL_EXECUTOR;
 
     /**
      * @param listener optional {@link LoadListener}
@@ -86,6 +88,7 @@ public abstract class DataLoader<T>
         this(null, null);
     }
 
+    /**Set listener to get notified of the result if async execution*/
     public void setListener(LoadListener<T> listener)
     {
         this.listener = listener;
@@ -93,10 +96,39 @@ public abstract class DataLoader<T>
 
     /**
      * List of providers for this loader<br>
-     * Providers are used in order they are placed in a list, make sure that you place providers with higher priority first<br><br>*/
+     * Providers are used in order they are placed in a list, make sure that you place providers with higher priority first<br><br>
+     * This removes a  existing providers*/
     public void setProviders(List<DataProvider<T>> providers)
     {
         this.providers = providers;
+    }
+
+    public void addProvider(DataProvider<T> provider)
+    {
+        if(providers == null)
+            providers = new ArrayList<>();
+        providers.add(provider);
+    }
+
+    public void removeProvider(DataProvider<T> provider)
+    {
+        if(providers == null)
+            return;
+        providers.remove(provider);
+    }
+
+    public void removeProvider(int index)
+    {
+        if(providers == null)
+            return;
+        providers.remove(index);
+    }
+
+    public void clearProviders()
+    {
+        if(providers == null)
+            return;
+        providers.clear();
     }
 
     /**
@@ -150,6 +182,14 @@ public abstract class DataLoader<T>
         return null;
     }
 
+    /**
+     * Start loading data<br><br>
+     * This method will throw an exception if provider list is null or empty<br><br>
+     * Loading is done on a worker thread<br><br>
+     * {@link DataProvider#load()} method will be called for
+     * each provider until one of them returns true<br><br>
+     * Providers are used in order they are placed in a list, make sure that you place providers with higher priority first<br><br>
+     * Result will be delivered in {@link LoadListener#onDataLoaded(Result)}*/
     public void loadData()
     {
         loadData(false);
@@ -206,9 +246,18 @@ public abstract class DataLoader<T>
 
     /**
      * Cancel loading
-     * This only calls cancel(true) on the underlying AsyncTask*/
+     * This only calls cancel(false) on the underlying AsyncTask*/
     public void cancel()
     {
         if(atLoader != null)atLoader.cancel(false);
+    }
+
+    /**
+     * Cancel loading
+     * This only calls cancel(mayInterruptIfRunning) on the underlying AsyncTask
+     * @param mayInterruptIfRunning passed down to AsyncTask used by DataLoader*/
+    public void cancel(boolean mayInterruptIfRunning)
+    {
+        if(atLoader != null)atLoader.cancel(mayInterruptIfRunning);
     }
 }

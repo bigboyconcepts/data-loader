@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'com.androidforever'
-version '2.0.2'
+version '2.1.0'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
@@ -76,9 +76,12 @@ uploadArchives {
     }
 }
 
+configurations { providedCompile }
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     archives "org.apache.maven.wagon:wagon-ssh:2.2"
+    providedCompile "com.esotericsoftware:kryo:4.0.0"
 }
 
 j2objcConfig {
@@ -87,3 +90,7 @@ j2objcConfig {
     skipJ2objcVerification true
     finalConfigure()
 }
+
+sourceSets.main.compileClasspath += configurations.providedCompile
+sourceSets.test.compileClasspath += configurations.providedCompile
+sourceSets.test.runtimeClasspath += configurations.providedCompile
