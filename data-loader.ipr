@@ -259,7 +259,7 @@
       <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="PropertiesComponent">
@@ -274,6 +274,15 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunConfigurationProducerService">
+    <option name="ignoredProducers">
+      <set>
+        <option value="org.jetbrains.plugins.gradle.execution.test.runner.AllInPackageGradleConfigurationProducer" />
+        <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestClassGradleConfigurationProducer" />
+        <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestMethodGradleConfigurationProducer" />
+      </set>
+    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -369,29 +378,6 @@
     <library name="asm-5.0.4">
       <CLASSES>
         <root url="jar://$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
-    </library>
-    <library name="data-loader-shared.data-loader-shared-2.0.2">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/shared/build/libs/data-loader-shared-2.0.2.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES>
-        <root url="jar://$PROJECT_DIR$/shared/build/libs/data-loader-shared-2.0.2-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="data-loader-shared.data-loader-shared-2.0.2-javadoc">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/shared/build/libs/data-loader-shared-2.0.2-javadoc.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
-    </library>
-    <library name="data-loader-shared.data-loader-shared-2.0.2-sources">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/shared/build/libs/data-loader-shared-2.0.2-sources.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />

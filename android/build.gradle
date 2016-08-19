@@ -11,19 +11,19 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group = 'com.androidforever'
-version = '2.1.0'
+version = '2.1.1'
 
 repositories {
     jcenter()
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
     }

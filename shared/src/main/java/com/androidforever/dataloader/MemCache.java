@@ -1,5 +1,6 @@
 package com.androidforever.dataloader;
 
+import java.lang.ref.SoftReference;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -11,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class MemCache extends Cache
 {
-    private Map<String, CacheObject> cache;
+    private Map<String, SoftReference<CacheObject>> cache;
 
     protected MemCache()
     {
@@ -21,19 +22,20 @@ public class MemCache extends Cache
     @Override
     protected <T> void put(String key, CacheObject<T> cacheObject)
     {
-        cache.put(key, cacheObject);
+        cache.put(key, new SoftReference<CacheObject>(cacheObject));
     }
 
     @Override
     protected <T> CacheObject<T> read(String key)
     {
-        return cache.get(key);
+        return cache.get(key) != null ? null : cache.get(key).get();
     }
 
     @Override
     protected <T> CacheObject<T> remove(String key)
     {
-        return cache.remove(key);
+        SoftReference<CacheObject> ref = cache.remove(key);
+        return ref == null ? null : ref.get();
     }
 
     @Override
