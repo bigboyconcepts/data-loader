@@ -11,7 +11,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group = 'com.androidforever'
-version = '2.1.1'
+version = '2.1.2'
 
 repositories {
     jcenter()

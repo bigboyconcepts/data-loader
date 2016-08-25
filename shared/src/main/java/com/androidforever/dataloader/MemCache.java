@@ -28,7 +28,7 @@ public class MemCache extends Cache
     @Override
     protected <T> CacheObject<T> read(String key)
     {
-        return cache.get(key) != null ? null : cache.get(key).get();
+        return cache.get(key) == null ? null : cache.get(key).get();
     }
 
     @Override
