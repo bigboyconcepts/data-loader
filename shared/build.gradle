@@ -76,12 +76,9 @@ uploadArchives {
     }
 }
 
-configurations { providedCompile }
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     archives "org.apache.maven.wagon:wagon-ssh:2.2"
-    providedCompile "com.esotericsoftware:kryo:4.0.0"
 }
 
 j2objcConfig {
@@ -90,7 +87,3 @@ j2objcConfig {
     skipJ2objcVerification true
     finalConfigure()
 }
-
-sourceSets.main.compileClasspath += configurations.providedCompile
-sourceSets.test.compileClasspath += configurations.providedCompile
-sourceSets.test.runtimeClasspath += configurations.providedCompile
