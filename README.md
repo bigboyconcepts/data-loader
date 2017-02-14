@@ -55,16 +55,17 @@ You add a list of `DataProviders` to `DataLoader` in order in which you want to 
 For example you can add `NetworkDataProvider` as first provider and `DatabaseDataProvider` as second.
 This way, if for `NetworkDataProvider` fails for some reason, `DataLoader` will then try the next provider, in this case `DatabaseDataProvider`
 
-To create DataProvider you need to implement following methods from `DataProvider` interface
-* `boolean load()`
-This is the main method for loading data. You should load your data here
-This method is called on worker thread so you can freely make api calls here.
-Return value should indicate if loading was successful or not. It is required to return valid value here to indicate to `DataLoader` if this provider succeeded or not
+To create DataProvider you need to implement following methods from `DataProvider` interface  
 
-* `T getResult()`
+* `boolean load()`  
+This is the main method for loading data. You should load your data here  
+This method is called on worker thread so you can freely make api calls here.  
+Return value should indicate if loading was successful or not. It is required to return valid value here to indicate to `DataLoader` if this provider succeeded or not  
+
+* `T getResult()`  
 Return your loading result here
 
-* `boolean forceLoading()`
+* `boolean forceLoading()`  
 If this method returns true, `DataLoader` will load data from this provider event if one of the previous providers loaded data successfully
 
 #### Add providers to `DataLoader`
@@ -109,17 +110,17 @@ dataLoader.setListener(new DataLoader.LoadListener()
 })
 ```
 
-* `void onLoadStarted()`
-Called when `DataLoader` has started loading data
+* `void onLoadStarted()`  
+Called when `DataLoader` has started loading data  
 
-* `onLoadingFinished(int status)`
+* `onLoadingFinished(int status)`  
 Called when `DataLoader` has finished loading data
 
-* `onDataLoaded(DataLoader.Result result)`
-Called when data has been loaded from single `DataProvider`
-use `result.data` to access loaded data, returned from `getResult`
-use `result.provider` to access `DataProvider` that loaded this data
-use `result.status` to check if loading was successful or not
+* `onDataLoaded(DataLoader.Result result)`  
+Called when data has been loaded from single `DataProvider`    
+use `result.data` to access loaded data, returned from `getResult`  
+use `result.provider` to access `DataProvider` that loaded this data  
+use `result.status` to check if loading was successful or not  
 
 #### Start loading
 
