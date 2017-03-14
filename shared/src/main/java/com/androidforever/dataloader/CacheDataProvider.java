@@ -42,6 +42,12 @@ public class CacheDataProvider<CacheClass extends Cache, Data> implements DataPr
     }
 
     @Override
+    public Object getMetadata()
+    {
+        return null;
+    }
+
+    @Override
     public String toString()
     {
         return "CacheDataProvider{" +

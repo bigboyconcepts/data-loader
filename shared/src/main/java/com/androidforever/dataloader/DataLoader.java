@@ -52,11 +52,13 @@ public abstract class DataLoader<T>
          * @see LoadListener#onLoadingFinished(int) */
         public final int status;
         public final T data;
+        public final Object metadata;
         public final DataProvider<T> provider;
 
-        public Result(T data, int status, DataProvider<T> provider)
+        public Result(T data, Object metadata, int status, DataProvider<T> provider)
         {
             this.data = data;
+            this.metadata = metadata;
             this.status = status;
             this.provider = provider;
         }
@@ -174,10 +176,10 @@ public abstract class DataLoader<T>
                 if(success)
                 {
                     T result = provider.getResult();
-                    return new Result<>(result, Result.STATUS_OK, provider);
+                    return new Result<>(result, provider.getMetadata(), Result.STATUS_OK, provider);
                 }
             }
-            return new Result<>(null, Result.STATUS_ERROR, null);
+            return new Result<>(null, null, Result.STATUS_ERROR, null);
         }
         return null;
     }
@@ -210,7 +212,7 @@ public abstract class DataLoader<T>
                 {
                     T result = provider.getResult();
                     anySucceeded = true;
-                    publishResult(new Result<>(result, Result.STATUS_OK, provider));
+                    publishResult(new Result<>(result, provider.getMetadata(), Result.STATUS_OK, provider));
                 }
             }
             return anySucceeded ? Result.STATUS_OK : Result.STATUS_ERROR;

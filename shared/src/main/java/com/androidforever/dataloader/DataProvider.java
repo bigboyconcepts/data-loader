@@ -40,4 +40,10 @@ public interface DataProvider<T>
      * </pre>*/
     boolean forceLoading();
 
+    /**
+     * You can return arbitrary data here. For example response message
+     * @return metadata
+     */
+    Object getMetadata();
+
 }
