@@ -1,8 +1,8 @@
 .gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
+/.idea/
 .DS_Store
 /build
-android/data-loader-android.iml
-shared/data-loader-shared.iml
+*.ipr
+*.iws
+*.iml

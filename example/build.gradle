@@ -1,6 +1,6 @@
 apply plugin: 'java'
 
-project.ext.mainClassName = "com.androidforever.dataloader.MyClass"
+project.ext.mainClassName = "MyClass"
 
 task run(dependsOn: classes, type: JavaExec) {
     main = project.mainClassName
@@ -11,6 +11,6 @@ task run(dependsOn: classes, type: JavaExec) {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':data-loader-shared')
+    compile project(':android')
     compile "com.esotericsoftware:kryo:4.0.0"
 }

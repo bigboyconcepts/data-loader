@@ -1,3 +1,1 @@
-include ':data-loader-shared', ':data-loader-android', ':example'
-project(':data-loader-android').projectDir = new File('android')
-project(':data-loader-shared').projectDir = new File('shared')
+include ':core', ':android', ':java', ':provided', ':example', ':cache'
