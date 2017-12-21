@@ -11,6 +11,6 @@ task run(dependsOn: classes, type: JavaExec) {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':android')
+    compile project(':java')
     compile "com.esotericsoftware:kryo:4.0.0"
 }
