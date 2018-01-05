@@ -2,7 +2,10 @@
 
 ##### Loading data from multiple sources with ease
 
-
+[![Quality Gate](http://skynetsoftware.org:9000/api/badges/gate?key=data-loader)](http://skynetsoftware.org:9000/dashboard/index/data-loader)
+[![Quality Gate](http://skynetsoftware.org:9000/api/badges/measure?key=data-loader&metric=ncloc)](http://skynetsoftware.org:9000/dashboard/index/data-loader)
+[![Quality Gate](http://skynetsoftware.org:9000/api/badges/measure?key=data-loader&metric=vulnerabilities)](http://skynetsoftware.org:9000/dashboard/index/data-loader)
+[![Quality Gate](http://skynetsoftware.org:9000/api/badges/measure?key=data-loader&metric=bugs)](http://skynetsoftware.org:9000/dashboard/index/data-loader)
 
 Usage
 =====
